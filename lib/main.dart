@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Challenge-5',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xffeed0d1),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Stack(
             children: <Widget>[
               Positioned(
-                top: 30,
+                top: 20,
                 left: 20,
                 child: Text(
                   'Hi,',
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Positioned(
-                top: 30,
+                top: 20,
                 left: 45,
                 child: Text(
                   'Mohamed',
@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Positioned(
-                top: 30,
+                top: 20,
                 left: 140,
                 child: Text(
                   '🙈',
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Positioned(
-                top: 60,
+                top: 50,
                 left: 20,
                 child: Text(
                   'All favorite products here. Let\'s grab',
@@ -90,13 +90,38 @@ class _MyHomePageState extends State<MyHomePage> {
                 top: 90,
                 left: 20,
                 child: Container(
-                  height: 60,
-                  width: 200,
+                  height: 50,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 0.05,
+                    ),
+                  ),
                   child: TextField(
                     decoration: InputDecoration(
-                      labelText: 'search...',
+                      hintText: 'Search...',
                       prefixIcon: Icon(Icons.search),
+                      border: InputBorder.none,
+                      disabledBorder: InputBorder.none,
                     ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 90,
+                left: 340,
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    color: Color(0xffeed0d1).withOpacity(0.4),
+                  ),
+                  child: Icon(
+                    Icons.filter,
+                    color: Color(0xffeed0d1),
                   ),
                 ),
               ),
@@ -187,6 +212,34 @@ class _MyHomePageState extends State<MyHomePage> {
                             : Colors.grey,
                       ),
                     ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 280,
+                left: 10,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  color: Color(0xfffceaea),
+                  child: Container(
+                    height: 270,
+                    width: 180,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 280,
+                left: 210,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  color: Color(0xfffffbd8),
+                  child: Container(
+                    height: 218.75,
+                    width: 180,
                   ),
                 ),
               ),
