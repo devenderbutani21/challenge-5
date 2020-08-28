@@ -42,6 +42,14 @@ class _MyHomePageState extends State<MyHomePage> {
   MenuItems _selectedMenuItem = MenuItems.forYou;
   CategoryItems _selectedCategoryItem = CategoryItems.forYou;
 
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
@@ -337,7 +345,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ItemDetailScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => ItemDetailScreen()),
                     );
                   },
                   child: Card(
@@ -434,6 +443,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text(
                             'best Khodar offers',
                             style: TextStyle(
+                              color: Color(0xffFDD451),
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
@@ -445,20 +455,47 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text(
                             '50% Off',
                             style: TextStyle(
+                              color: Color(0xffFDD451),
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 90,
-                          left: 40,
-                          child: FlatButton(
-                            child: Text('Best Offers'),
+                          bottom: 80,
+                          left: 10,
+                          child: Container(
+                            width: 160,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.0),
+                              color: Colors.white,
+                              border: Border.all(
+                                color: Color(0xfddab38),
+                                width: 3,
+                              ),
+                            ),
+                            child: FlatButton(
+                              padding: EdgeInsets.only(
+                                top: 8.0,
+                                bottom: 8.0,
+                                left: 16.0,
+                                right: 16.0,
+                              ),
+                              child: Text(
+                                'Best Offers',
+                                style: TextStyle(
+                                  color: Color(0xffFDD451),
+                                  fontSize: 16,
+                                  fontFamily: 'Arial',
+                                ),
+                              ),
+                              onPressed: () {},
+                            ),
                           ),
                         ),
                         Positioned(
-                          top: 120,
+                          top: 130,
                           left: 40,
                           child: Image.asset(
                             'assets/images/cherry.png',
@@ -473,6 +510,38 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+              ),
+              title: Text('Home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.repeat,
+              ),
+              title: Text('Repeat'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite_border_outlined,
+              ),
+              title: Text('Favorite'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite_border_outlined,
+              ),
+              title: Text('Favorite'),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Color(0xffefa9af),
+          backgroundColor: Colors.white,
+          onTap: _onItemTapped,
         ),
       ),
     );
