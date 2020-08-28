@@ -5,9 +5,9 @@ class ItemDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
           height: deviceSize.height,
           width: deviceSize.width,
           decoration: BoxDecoration(
@@ -67,7 +67,7 @@ class ItemDetailScreen extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 220,
+                top: 232,
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -76,7 +76,7 @@ class ItemDetailScreen extends StatelessWidget {
                       topRight: const Radius.circular(60.0),
                     ),
                   ),
-                  height: deviceSize.height * 0.65,
+                  height: deviceSize.height * 0.625,
                   width: deviceSize.width,
                   child: Stack(
                     children: <Widget>[
