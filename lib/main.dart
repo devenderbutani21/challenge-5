@@ -1,9 +1,17 @@
+import 'package:challenge5/screen/item_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 enum MenuItems {
   forYou,
   grocery,
   fruitsAndVegetable,
+}
+
+enum CategoryItems {
+  forYou,
+  offers,
+  fruits,
+  legumes,
 }
 
 void main() {
@@ -31,7 +39,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  MenuItems _selected = MenuItems.forYou;
+  MenuItems _selectedMenuItem = MenuItems.forYou;
+  CategoryItems _selectedCategoryItem = CategoryItems.forYou;
 
   @override
   Widget build(BuildContext context) {
@@ -131,13 +140,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      _selected = MenuItems.forYou;
+                      _selectedMenuItem = MenuItems.forYou;
                     });
                   },
                   child: Container(
                     padding: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                      color: _selected == MenuItems.forYou
+                      color: _selectedMenuItem == MenuItems.forYou
                           ? Color(0xffeed0d1)
                           : Colors.white,
                       borderRadius: BorderRadius.circular(10.0),
@@ -147,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: _selected == MenuItems.forYou
+                        color: _selectedMenuItem == MenuItems.forYou
                             ? Colors.white
                             : Colors.grey,
                       ),
@@ -161,13 +170,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      _selected = MenuItems.grocery;
+                      _selectedMenuItem = MenuItems.grocery;
                     });
                   },
                   child: Container(
                     padding: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                      color: _selected == MenuItems.grocery
+                      color: _selectedMenuItem == MenuItems.grocery
                           ? Color(0xffeed0d1)
                           : Colors.white,
                       borderRadius: BorderRadius.circular(10.0),
@@ -177,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: _selected == MenuItems.grocery
+                        color: _selectedMenuItem == MenuItems.grocery
                             ? Colors.white
                             : Colors.grey,
                       ),
@@ -191,13 +200,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      _selected = MenuItems.fruitsAndVegetable;
+                      _selectedMenuItem = MenuItems.fruitsAndVegetable;
                     });
                   },
                   child: Container(
                     padding: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                      color: _selected == MenuItems.fruitsAndVegetable
+                      color: _selectedMenuItem == MenuItems.fruitsAndVegetable
                           ? Color(0xffeed0d1)
                           : Colors.white,
                       borderRadius: BorderRadius.circular(10.0),
@@ -207,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: _selected == MenuItems.fruitsAndVegetable
+                        color: _selectedMenuItem == MenuItems.fruitsAndVegetable
                             ? Colors.white
                             : Colors.grey,
                       ),
@@ -216,21 +225,198 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Positioned(
-                top: 280,
-                left: 10,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25.0),
+                top: 205,
+                left: 30,
+                child: Container(
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.grey.shade400,
+                      width: 0.05,
+                    ),
                   ),
-                  color: Color(0xfffceaea),
-                  child: Container(
-                    height: 270,
-                    width: 180,
+                  child: Center(
+                    child: Text(
+                      '🙎‍♂',
+                      style: TextStyle(
+                        fontSize: 24,
+                      ),
+                    ),
                   ),
                 ),
               ),
               Positioned(
-                top: 280,
+                top: 205,
+                left: 130,
+                child: Container(
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.grey.shade400,
+                      width: 0.05,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '🎁',
+                      style: TextStyle(
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 205,
+                left: 230,
+                child: Container(
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.grey.shade400,
+                      width: 0.05,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '🍉',
+                      style: TextStyle(
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 205,
+                left: 330,
+                child: Container(
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.grey.shade400,
+                      width: 0.05,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '🥗',
+                      style: TextStyle(
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 270,
+                left: 20,
+                child: Text(
+                  'recommended for you',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 300,
+                left: 10,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ItemDetailScreen()),
+                    );
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                    color: Color(0xfffceaea),
+                    child: Container(
+                      height: 270,
+                      width: 180,
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            child: Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25.0),
+                                color: Color(0xfffff4f5),
+                              ),
+                              child: Center(
+                                child: Icon(
+                                  Icons.add,
+                                  size: 32,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 70,
+                            left: 30,
+                            child: Image.asset(
+                              'assets/images/strawberry.png',
+                              height: 140,
+                              width: 140,
+                            ),
+                          ),
+                          Positioned(
+                            top: 200,
+                            left: 20,
+                            child: Text(
+                              'Strawberry',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 200,
+                            left: 120,
+                            child: Text(
+                              '1Kg',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 225,
+                            left: 20,
+                            child: Text(
+                              '12.50 L.E.',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 300,
                 left: 210,
                 child: Card(
                   shape: RoundedRectangleBorder(
@@ -240,6 +426,48 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     height: 218.75,
                     width: 180,
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          top: 30,
+                          left: 20,
+                          child: Text(
+                            'best Khodar offers',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          top: 60,
+                          left: 40,
+                          child: Text(
+                            '50% Off',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          top: 90,
+                          left: 40,
+                          child: FlatButton(
+                            child: Text('Best Offers'),
+                          ),
+                        ),
+                        Positioned(
+                          top: 120,
+                          left: 40,
+                          child: Image.asset(
+                            'assets/images/cherry.png',
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
