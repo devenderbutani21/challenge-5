@@ -20,6 +20,8 @@ enum CategoryItems {
   legumes,
 }
 
+Color color = Color(0xffeed0d1);
+
 void main() {
   runApp(MyApp());
 }
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Challenge-5',
       theme: ThemeData(
-        primaryColor: Color(0xffeed0d1),
+        primaryColor: color,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -55,11 +57,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Container(
-            height: deviceSize.height,
+            height: 1.275 * deviceSize.height ,
             width: deviceSize.width,
             color: Color(0xfffafff9),
             child: Stack(
+              overflow: Overflow.visible,
               children: <Widget>[
                 Positioned(
                   top: 20,
@@ -77,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     'Mohamed',
                     style: TextStyle(
-                      color: Color(0xffeed0d1),
+                      color: color,
                       fontSize: 20.0,
                     ),
                   ),
@@ -134,11 +138,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
-                      color: Color(0xffeed0d1).withOpacity(0.4),
+                      color: color.withOpacity(0.4),
                     ),
                     child: Icon(
                       Icons.filter,
-                      color: Color(0xffeed0d1),
+                      color: color,
                     ),
                   ),
                 ),
@@ -182,10 +186,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         'Fruits & Vegetables'),
                   ),
                 ),
-                CategoryItem('🙎‍♂', 205, 30),
-                CategoryItem('🎁', 205, 130),
-                CategoryItem('🍉', 205, 230),
-                CategoryItem('🥗', 205, 330),
+                CategoryItem('🙎‍♂', 'For You', 205, 30),
+                CategoryItem('🎁', 'Offers',205, 130),
+                CategoryItem('🍉', 'Fruits',205, 230),
+                CategoryItem('🥗', 'Legumes',205, 330),
                 Positioned(
                   top: 270,
                   left: 20,
@@ -242,7 +246,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     '12.50 L.E.',
                   ),
                 ),
-              ],
+          ],
             ),
           ),
         ),

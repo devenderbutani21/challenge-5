@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
   String item;
+  String title;
   double topPos;
   double leftPos;
 
-  CategoryItem(this.item, this.topPos, this.leftPos);
+  CategoryItem(this.item,this.title, this.topPos, this.leftPos);
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +24,26 @@ class CategoryItem extends StatelessWidget {
             width: 0.05,
           ),
         ),
-        child: Center(
-          child: Text(
-            item,
-            style: TextStyle(
-              fontSize: 24,
+        child: Column(
+          children: <Widget>[
+            Center(
+              child: Text(
+                item,
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
             ),
-          ),
+            SizedBox(height: 10,),
+            Center(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
